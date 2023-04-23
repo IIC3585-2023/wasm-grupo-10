@@ -12,7 +12,6 @@ function getAllClusterCombinations(lists, n, allJobs) {
     const results = [];
     function recursiveGroup(remainingLists, currentGroup) {
         if (currentGroup.length === n) {
-            console.log(currentGroup)
             const groupSize = currentGroup.reduce((prev, curr) => prev + curr.length, 0)
             const combinedList = currentGroup.reduce((prev, curr) => prev.concat(curr), []).sort()
             if (groupSize == allJobs.length && _.isEqual(allJobs, combinedList)) {
@@ -44,10 +43,10 @@ function getBestClusterCombination(combinations) {
     return bestClusterCombination
 }
 
-let jobs = [30, 50, 10].sort()
+let jobs = [30, 50, 10, 20, 90].sort()
 const subsets = getAllSubsets(jobs)
 console.log(subsets)
-const clusterCombinations = getAllClusterCombinations(subsets, 2, jobs)
+const clusterCombinations = getAllClusterCombinations(subsets, 3, jobs)
 console.log(clusterCombinations, clusterCombinations.length)
 const bestCluster = getBestClusterCombination(clusterCombinations)
 // console.log(bestCluster, bestCluster.length)

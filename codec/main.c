@@ -48,6 +48,12 @@ int factorial(int n) {
   };
 };
 
+void recursiveGroup(int remainingN, int*** results, int totalCombinations){
+  for (int i = 0; i < totalCombinations; i++){
+
+  }
+}
+
 int*** getAllClusterCombinations(int** lists, int listLength, int n, int* allJobs, int totalCombinations){
   int*** results = calloc(totalCombinations, sizeof(int**));
   

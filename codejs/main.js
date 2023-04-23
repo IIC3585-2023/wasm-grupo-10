@@ -43,7 +43,7 @@ function getBestClusterCombination(combinations) {
     return bestClusterCombination
 }
 
-let jobs = [30, 50, 10, 20, 90].sort()
+let jobs = [30, 50, 10, 20, 9, 10, 10, 10].sort()
 const subsets = getAllSubsets(jobs)
 console.log(subsets, subsets.length)
 const clusterCombinations = getAllClusterCombinations(subsets, 2, jobs)

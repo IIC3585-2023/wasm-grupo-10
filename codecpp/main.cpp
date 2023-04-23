@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -54,22 +55,22 @@ int main() {
     vector<vector<int>> results = getAllClusterCombinations(lists, 3, allJobs);
     for (int i = 0; i < results.size(); i++) {
         vector<int> group = results[i];
-        cout << "Group " << i+1 << ": ";
+        std::cout << "Group " << i+1 << ": ";
         for (int j = 0; j < group.size(); j++) {
             vector<int> list = lists[group[j]];
-            cout << "{";
+            std::cout << "{";
             for (int k = 0; k < list.size(); k++) {
-                cout << list[k];
+                std::cout << list[k];
                 if (k < list.size()-1) {
-                    cout << ", ";
+                    std::cout << ", ";
                 }
             }
-            cout << "}";
+            std::cout << "}";
             if (j < group.size()-1) {
-                cout << " + ";
+                std::cout << " + ";
             }
         }
-        cout << endl;
+        std::cout << std::endl;
     }
     return 0;
 }

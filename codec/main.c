@@ -41,7 +41,7 @@ int** getAllSubsets(int* jobs, int jobsSize, int allSubsetsLength) {
 };
 
 int*** getAllClusterCombinations(int** lists, int n, int* allJobs){
-  
+
 }
 
 int main() {

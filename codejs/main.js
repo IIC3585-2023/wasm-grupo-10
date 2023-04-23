@@ -43,13 +43,13 @@ function getBestClusterCombination(combinations) {
     return bestClusterCombination
 }
 
-let jobs = [30, 50, 10, 20, 9, 10, 10, 10].sort()
+let jobs = [30, 50, 10, 20, 90].sort()
 const subsets = getAllSubsets(jobs)
-console.log(subsets, subsets.length)
+// console.log(subsets.length)
 const clusterCombinations = getAllClusterCombinations(subsets, 2, jobs)
-console.log(clusterCombinations, clusterCombinations.length)
+// console.log(clusterCombinations, clusterCombinations.length)
 const bestCluster = getBestClusterCombination(clusterCombinations)
-console.log(bestCluster, bestCluster.length)
+// console.log(bestCluster, bestCluster.length)
 
 // let a = new Set(jobs)
 // console.log(_.sum(Array.from(a)))
@@ -77,4 +77,3 @@ console.log(bestCluster, bestCluster.length)
 //     [['c'], ['a', 'b']],
 //     [['a', 'b', 'c'], []]
 // ]
-

@@ -24,23 +24,16 @@ vector<vector<int>> getAllSubsets(vector<int> jobs) {
 
 
 void recursiveGroup(vector<vector<int>> remainingLists, vector<vector<int>> currentGroup, int n, vector<int> allJobs, vector<vector<vector<int>>>& results) {
-    // std::cout << "remainingLists: " << remainingLists.size() << ", currentGroup: " << currentGroup.size() << endl;
     if (currentGroup.size() == n) {
-        // int groupSize = 0;
-        // for (int i = 0; i < currentGroup.size(); i++) {
-        //     groupSize += currentGroup[i].size();
-        // }
         vector<int> combinedList;
         for (int i = 0; i < currentGroup.size(); i++) {
             sort(currentGroup[i].begin(), currentGroup[i].end());
             vector<int> list = currentGroup[i];
             combinedList.insert(combinedList.end(),list.begin(), list.end());
             sort(combinedList.begin(), combinedList.end());
-            // cout << "combinedList: " << combinedList.size() << ", allJobs: " << allJobs.size() << endl;
         }
         if (combinedList.size() == allJobs.size() && allJobs == combinedList) {
             results.push_back(currentGroup);
-            // cout << "Results (so far): " << results.size() << endl;
         }
         return;
     }
@@ -121,4 +114,29 @@ int main() {
         cout << endl;
     }
     return 0;
+}
+
+extern "C" void cppSolve(int* arrJobs, int jobsSize, int clusterNum) {
+    vector<int> allJobs(arrJobs, arrJobs + jobsSize);
+    sort(allJobs.begin(), allJobs.end());
+    vector<vector<int>> allSubsets = getAllSubsets(allJobs);
+    vector<vector<vector<int>>> results = getAllClusterCombinations(allSubsets, clusterNum, allJobs);
+    vector<vector<int>> bestCluster = getBestClusterCombination(results);
+    int i = 1;
+    int j = 0;
+    for (const vector<int>& cluster : bestCluster) {
+        cout << "Cluster " << i << ": [";
+        for (const int& job : cluster) {
+            if (j == cluster.size()-1) {
+                cout << job;
+            } else {
+                cout << job << ", ";
+            }
+            j++;
+        }
+        cout << "]";
+        i++;
+        j = 0;
+        cout << endl;
+    }
 }

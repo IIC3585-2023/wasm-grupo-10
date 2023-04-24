@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 vector<vector<int>> getAllSubsets(vector<int> jobs) {
     vector<vector<int>> allSubsets = {{}};
 
@@ -18,10 +17,8 @@ vector<vector<int>> getAllSubsets(vector<int> jobs) {
             allSubsets.push_back(subset);
         }
     }
-
     return allSubsets;
 }
-
 
 void recursiveGroup(vector<vector<int>> remainingLists, vector<vector<int>> currentGroup, int n, vector<int> allJobs, vector<vector<vector<int>>>& results) {
     if (currentGroup.size() == n) {
@@ -75,37 +72,8 @@ vector<vector<int>> getBestClusterCombination(vector<vector<vector<int>>> combin
 int main() {
     vector<int> allJobs = { 90, 50, 30, 20, 10 };
     sort(allJobs.begin(), allJobs.end());
-
     vector<vector<int>> allSubsets = getAllSubsets(allJobs);
-    // for (const vector<int>& subset : allSubsets) {
-    //     for (const int& element : subset) {
-    //         cout << element << " ";
-    //     }
-    //     cout << endl;
-    // }
-
     vector<vector<vector<int>>> results = getAllClusterCombinations(allSubsets, 2, allJobs);
-    // cout << "Results: " << results.size() << endl;
-    // for (int i = 0; i < results.size(); i++) {
-    //     vector<vector<int>> group = results[i];
-    //     std::cout << "Group " << i+1 << ": ";
-    //     for (int j = 0; j < group.size(); j++) {
-    //         vector<int> list = group[j];
-    //         std::cout << "{";
-    //         for (int k = 0; k < list.size(); k++) {
-    //             std::cout << list[k];
-    //             if (k < list.size()-1) {
-    //                 std::cout << ", ";
-    //             }
-    //         }
-    //         std::cout << "}";
-    //         if (j < group.size()-1) {
-    //             std::cout << " + ";
-    //         }
-    //     }
-    //     std::cout << endl;
-    // 
-
     vector<vector<int>> bestCluster = getBestClusterCombination(results);
     for (const vector<int>& cluster : bestCluster) {
         for (const int& job : cluster) {

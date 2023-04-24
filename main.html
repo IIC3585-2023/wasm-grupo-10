@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tarea 3 - WASM</title>
+    </head>
+    <body>
+        <h1>Tarea 3 - WASM</h1>
+        <h3>Ingrese los trabajos separados por coma y el número de clusters</h3>
+        <div>
+            <input id="input-jobs" placeholder="Trabajos" type="text"/>
+            <input id="input-clusters" placeholder="Número de Clusters" type="text"/>
+        </div>
+        <h3>Seleccione el método de asignación de trabajos</h3>
+        <div>
+            <button id="button-wasm">WASM - C++</button>
+            <button id="button-js">JavaScript</button>
+        </div>
+        <h3>Ver resultados en consola</h3>
+        <script src="codecpp/main.js"></script>
+        <script src="codejs/main.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
